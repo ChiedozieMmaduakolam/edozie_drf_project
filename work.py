@@ -3,7 +3,7 @@ import requests
 
 
 global base_url
-base_url = 'https://edozie-drf-project.onrender.com/'
+base_url = 'https://edozie-drf-project-adqg.onrender.com'
 
 
 try:

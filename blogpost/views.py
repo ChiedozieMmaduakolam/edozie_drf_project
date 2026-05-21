@@ -32,13 +32,13 @@ class UserRegisterView(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         user = serializer.data
-        try:
-            async_send_otp(email=user['email'])
-        except:
-            pass
+        # try:
+        #     async_send_otp(email=user['email'])
+        # except:
+        #     pass
         return Response(
             {
-                'message': f'A message has been sent to your email address. Use the code to verify your email'
+                'message': f'Your registration was successful'
             }, status=status.HTTP_200_OK
         )
     
