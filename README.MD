@@ -1,17 +1,17 @@
 This project is a backend api project built with django and django rest framework(Python frameworks for backend web development).
 It makes use of the JWT(Json Web Token) to authenticate users.
 Its production and database are managed by render web hosting and database services.
-The link to this project is https://edozie-drf-project.onrender.com
+The link to this project is https://edozie-drf-project-adqg.onrender.com
 
 Currently, there are two main apps in this project.
 
 One is the blogpost app, where a signed in user can create, read, update and delete posts.
 Users who are not signed in can also read posts and post comments but are not permitted to create, update and delete posts.
-The link to this app is https://edozie-drf-project.onrender.com/blogpost
+The link to this app is https://edozie-drf-project-adqg.onrender.com/blogpost
 
 The other app is a banking app that has the same features as a real life bank app.
 When logged in, authenticated users can check their account balance, make transfer and view their statement of account.
-The link to this app is https://edozie-drf-project.onrender.com/bankapp
+The link to this app is https://edozie-drf-project-adqg.onrender.com/bankapp
 
 Note: The blogpost app handles the user registration and login.
 
