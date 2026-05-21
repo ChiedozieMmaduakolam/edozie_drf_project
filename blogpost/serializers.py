@@ -17,8 +17,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
 
-        if not self.user.is_verified:
-            raise AuthenticationFailed('This email is not verified yet')
+        # if not self.user.is_verified:
+        #     raise AuthenticationFailed('This email is not verified yet')
 
         # Add extra user data (optional)
         data['username'] = self.user.username
