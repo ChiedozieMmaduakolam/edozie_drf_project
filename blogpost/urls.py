@@ -26,7 +26,7 @@ urlpatterns = [
     path('delete-blogpost/', views.DeleteBlogPost.as_view(), name='delete-blogpost'),
 
 
-    path('delete/', views.delete_view, name='delete'),
-    path('view-users/', views.view_users, name='delete'),
+    # path('delete/', views.delete_view, name='delete'),
+    # path('view-users/', views.view_users, name='delete'),
 ]
 

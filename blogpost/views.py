@@ -162,9 +162,9 @@ class CommentList(generics.ListCreateAPIView):
         serializer.save(post=post)
 
 
-def delete_view(request):
-    CustomUser.objects.all().delete()
-    return HttpResponse('Users deleted successfully')
+# def delete_view(request):
+#     CustomUser.objects.all().delete()
+#     return HttpResponse('Users deleted successfully')
 
-def view_users(request):
-    return CustomUser.objects.all()
+# def view_users(request):
+#     return CustomUser.objects.all()
