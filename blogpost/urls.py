@@ -20,6 +20,7 @@ urlpatterns = [
     path('create-post/', views.CreatePostView.as_view(), name='create-post'),
     path('posts/', views.PostListView.as_view(), name='posts'),
     path('posts/<int:pk>/', views.PostDetailView.as_view(), name='post-detail'),
+    path('my-posts/', views.MyPostsView.as_view(), name='my-posts'),
     path('posts/<int:post_id>/comments/', views.CommentList.as_view(), name='post-comments'),
     path('update-blogpost/<int:pk>/', views.UpdateBlogPost.as_view(), name='update-blogpost'),
     path('delete-blogpost/', views.DeleteBlogPost.as_view(), name='delete-blogpost'),

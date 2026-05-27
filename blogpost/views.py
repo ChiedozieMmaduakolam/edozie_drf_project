@@ -11,6 +11,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 import datetime
 from django.http import HttpResponse
 from .utils import async_send_otp
+from .permissions import IsAuthor
 
 # Create your views here.
 
@@ -126,15 +127,20 @@ class PostDetailView(generics.RetrieveDestroyAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = PostSerializer
     #permission_classes = [IsAuthenticated]
-    
 
-class UpdateBlogPost(mixins.UpdateModelMixin, generics.GenericAPIView):
-    queryset = BlogPost.objects.all()
+
+class MyPostsView(generics.ListAPIView):
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated]
 
-    def put(self, request, *args, **kwargs):
-        return self.update(request, *args, **kwargs)
+    def get_queryset(self):
+        return BlogPost.objects.filter(author=self.request.user)
+    
+
+class UpdateBlogPost(generics.UpdateAPIView):
+    queryset = BlogPost.objects.all()
+    serializer_class = PostSerializer
+    permission_classes = [IsAuthenticated, IsAuthor]
 
 
 class DeleteBlogPost(generics.DestroyAPIView):

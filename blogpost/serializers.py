@@ -83,4 +83,4 @@ class PostSerializer(serializers.ModelSerializer):
     author = serializers.SlugRelatedField(read_only=True, slug_field='id')
     class Meta:
         model = BlogPost
-        fields = ['title', 'content', 'date_posted', 'author', 'comments']
+        fields = ['id', 'title', 'content', 'date_posted', 'author', 'comments']

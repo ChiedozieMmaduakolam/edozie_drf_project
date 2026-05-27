@@ -3,7 +3,7 @@ import requests
 
 
 global base_url
-base_url = 'https://edozie-drf-project-adqg.onrender.com'
+base_url = 'https://edozie-drf-project-adqg.onrender.com/'
 
 
 try:
@@ -38,7 +38,7 @@ def login(username, password):
 
 def logout(refresh_token):
     data = {'refresh_token': refresh_token}
-    resp = requests.post(base_url + 'blogpost/logout/', json=data)
+    resp = requests.post(base_url + 'blogpost/logout/', json=data, headers=headers)
     print(resp.json(), resp.status_code)
     print('Logged Out!!!')
     
@@ -114,8 +114,9 @@ def transfer(receiver_account, amount, narration):
     print(resp.json(), resp.status_code)
     
 
-login('Osuamadi', 'Mmaduakolam_1996')
+#login('Chiedozie', 'mmaduakolam')
+#profile_view()
 #bank_profile()
-#logout(tokens.refresh_token)
+logout(tokens.refresh_token)
 #open_bank_account('09015175965')
 #transfer('8161317871', 50000, "Testing")
