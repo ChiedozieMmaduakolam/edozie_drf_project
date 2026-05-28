@@ -90,7 +90,7 @@ class ProfileView(APIView):
     def get(self, request):
         return Response({
             'message': f'Hello {request.user.username}'  # Greet the authenticated user
-        })
+        }, status=status.HTTP_200_OK)
 
 
 class CreatePostView(APIView):
@@ -141,12 +141,28 @@ class UpdateBlogPost(generics.UpdateAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsAuthenticated, IsAuthor]
+    
+    def patch(self, request, *args, **kwargs):
+        response = super().patch(request, *args, **kwargs)
+
+        return Response({
+            'message': 'Your post has been updated successfully',
+            'data': response.data
+        }, status=status.HTTP_200_OK)
 
 
 class DeleteBlogPost(generics.DestroyAPIView):
     queryset = BlogPost.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsAuthor]
+
+    def delete(self, request, *args, **kwargs):
+        instance = self.get_object()
+        self.perform_destroy(instance)
+
+        return Response({
+            'message': 'Your post has been deleted successfully'
+        }, status=status.HTTP_200_OK)
 
 #Comments
 class CommentList(generics.ListCreateAPIView):
